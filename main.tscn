@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://blngt80rl0wue"]
 
-[ext_resource type="PackedScene" path="res://player.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://c5qxvjxqwxqxq" path="res://player.tscn" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://cpds5jyofdrxh" path="res://color_adder.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://demu3u67o3vdo" path="res://color_subtractor.tscn" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(3000, 100)
@@ -13,7 +15,7 @@ size = Vector2(200, 30)
 
 [node name="Main" type="Node2D" unique_id=1874559404]
 
-[node name="Player" parent="." unique_id=1916388868 instance=ExtResource("1_main")]
+[node name="Player" parent="." unique_id=1916388868 groups=["player"] instance=ExtResource("1_main")]
 position = Vector2(100, 500)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1223158880]
@@ -32,7 +34,7 @@ color = Color(0.5, 0.5, 0.5, 1)
 shape = SubResource("RectangleShape2D_ground")
 
 [node name="RedWall1" type="StaticBody2D" parent="." unique_id=563851119]
-position = Vector2(400, 450)
+position = Vector2(283, 407)
 collision_layer = 2
 collision_mask = 0
 
@@ -42,27 +44,29 @@ offset_top = -150.0
 offset_right = 25.0
 offset_bottom = 150.0
 color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RedWall1" unique_id=1518936976]
 shape = SubResource("wall_shape")
 
-[node name="BlueWall1" type="StaticBody2D" parent="." unique_id=1546555252]
-position = Vector2(700, 450)
-collision_layer = 4
+[node name="PurpleWall1" type="StaticBody2D" parent="." unique_id=1546555252]
+position = Vector2(1912, 418)
+collision_layer = 32
 collision_mask = 0
 
-[node name="ColorRect" type="ColorRect" parent="BlueWall1" unique_id=1304688951]
+[node name="ColorRect" type="ColorRect" parent="PurpleWall1" unique_id=1304688951]
 offset_left = -25.0
 offset_top = -150.0
 offset_right = 25.0
 offset_bottom = 150.0
-color = Color(0, 0, 1, 1)
+color = Color(0.5547914, 0.00021206409, 0.5513911, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueWall1" unique_id=202086165]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleWall1" unique_id=202086165]
 shape = SubResource("wall_shape")
 
 [node name="RedWall2" type="StaticBody2D" parent="." unique_id=1405398157]
-position = Vector2(1000, 450)
+position = Vector2(665, 407)
 collision_layer = 2
 collision_mask = 0
 
@@ -72,12 +76,13 @@ offset_top = -150.0
 offset_right = 25.0
 offset_bottom = 150.0
 color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RedWall2" unique_id=163863625]
 shape = SubResource("wall_shape")
 
 [node name="BlueWall2" type="StaticBody2D" parent="." unique_id=985119274]
-position = Vector2(1300, 450)
+position = Vector2(1126, 518)
 collision_layer = 4
 collision_mask = 0
 
@@ -87,12 +92,13 @@ offset_top = -150.0
 offset_right = 25.0
 offset_bottom = 150.0
 color = Color(0, 0, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlueWall2" unique_id=1147469596]
 shape = SubResource("wall_shape")
 
 [node name="Platform1" type="StaticBody2D" parent="." unique_id=796497968]
-position = Vector2(550, 492)
+position = Vector2(492, 486)
 
 [node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=790743292]
 offset_left = -100.0
@@ -100,6 +106,7 @@ offset_top = -15.0
 offset_right = 100.0
 offset_bottom = 15.0
 color = Color(0.5, 0.5, 0.5, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=715056382]
 shape = SubResource("platform_shape")
@@ -118,7 +125,7 @@ color = Color(0.5, 0.5, 0.5, 1)
 shape = SubResource("platform_shape")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=6742186]
-position = Vector2(1150, 400)
+position = Vector2(1366, 416)
 
 [node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=271272297]
 offset_left = -100.0
@@ -126,6 +133,32 @@ offset_top = -15.0
 offset_right = 100.0
 offset_bottom = 15.0
 color = Color(0.5, 0.5, 0.5, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=504094449]
 shape = SubResource("platform_shape")
+
+[node name="ColorAdder" parent="." unique_id=1236073505 instance=ExtResource("2_0xm2m")]
+position = Vector2(1675.9999, 364)
+scale = Vector2(4.5, 4.5)
+
+[node name="ColorSubtractor" parent="." unique_id=1005140926 instance=ExtResource("3_h2yge")]
+position = Vector2(2159, 429)
+scale = Vector2(4.5, 4.5)
+trigger_color = 0
+
+[node name="BlueWall3" type="StaticBody2D" parent="." unique_id=450555451]
+position = Vector2(2427, 419)
+collision_layer = 4
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="BlueWall3" unique_id=1323003119]
+offset_left = -25.0
+offset_top = -150.0
+offset_right = 25.0
+offset_bottom = 150.0
+color = Color(0, 0, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueWall3" unique_id=637330298]
+shape = SubResource("wall_shape")

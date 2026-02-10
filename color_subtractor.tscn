@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://demu3u67o3vdo"]
+
+[ext_resource type="Script" uid="uid://dqr231ie4jk44" path="res://color_subtractor.gd" id="1_22n6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jofv8"]
+
+[node name="ColorSubtractor" type="Area2D" unique_id=1005140926]
+script = ExtResource("1_22n6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863550941]
+shape = SubResource("RectangleShape2D_jofv8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2139723591]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

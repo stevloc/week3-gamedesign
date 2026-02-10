@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cpds5jyofdrxh"]
+
+[ext_resource type="Script" uid="uid://dkfgwhb76svog" path="res://color_adder.gd" id="1_hm5hd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h41d6"]
+
+[node name="ColorAdder" type="Area2D" unique_id=1236073505]
+script = ExtResource("1_hm5hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551529506]
+shape = SubResource("RectangleShape2D_h41d6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1361268282]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
