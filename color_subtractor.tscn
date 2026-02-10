@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dqr231ie4jk44" path="res://color_subtractor.gd" id="1_22n6b"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jofv8"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_22n6b"]
+points = PackedVector2Array(-16, -18, -16, 0, 0, 16, 15.999992, 0, 16, -18)
 
 [node name="ColorSubtractor" type="Area2D" unique_id=1005140926]
 script = ExtResource("1_22n6b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863550941]
-shape = SubResource("RectangleShape2D_jofv8")
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1080964897]
+polygon = PackedVector2Array(-16, -18, -16, 0, 0, 16, 15.999992, 0, 16, -18)
+uv = PackedVector2Array(-16, -16, -16, 0, 0, 16, 15.999992, 0, 15.999992, -16)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2139723591]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863550941]
+shape = SubResource("ConvexPolygonShape2D_22n6b")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

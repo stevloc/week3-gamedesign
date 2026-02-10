@@ -15,7 +15,7 @@ size = Vector2(200, 30)
 
 [node name="Main" type="Node2D" unique_id=1874559404]
 
-[node name="Player" parent="." unique_id=1916388868 groups=["player"] instance=ExtResource("1_main")]
+[node name="Player" parent="." unique_id=1916388868 instance=ExtResource("1_main")]
 position = Vector2(100, 500)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1223158880]
@@ -140,7 +140,7 @@ shape = SubResource("platform_shape")
 
 [node name="ColorAdder" parent="." unique_id=1236073505 instance=ExtResource("2_0xm2m")]
 position = Vector2(1675.9999, 364)
-scale = Vector2(4.5, 4.5)
+scale = Vector2(4, 4)
 
 [node name="ColorSubtractor" parent="." unique_id=1005140926 instance=ExtResource("3_h2yge")]
 position = Vector2(2159, 429)

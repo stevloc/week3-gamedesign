@@ -2,18 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dkfgwhb76svog" path="res://color_adder.gd" id="1_hm5hd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h41d6"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_h41d6"]
+points = PackedVector2Array(16, 18, 15.999985, 0, 0, -16, -15.999985, 0, -16, 18)
 
 [node name="ColorAdder" type="Area2D" unique_id=1236073505]
 script = ExtResource("1_hm5hd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551529506]
-shape = SubResource("RectangleShape2D_h41d6")
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1509328117]
+polygon = PackedVector2Array(16, 18, 15.999985, 0, 0, -16, -15.999985, 0, -16, 18)
+uv = PackedVector2Array(15.999985, 16, 15.999985, 0, 0, -16, -15.999985, 0, -15.999985, 16)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1361268282]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1551529506]
+shape = SubResource("ConvexPolygonShape2D_h41d6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
