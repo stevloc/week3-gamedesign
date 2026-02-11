@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvn8x7y2qm3k5"]
+
+[ext_resource type="Script" path="res://win_screen.gd" id="1_win_script"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_win_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.1, 0.1, 0.15, 1)
+
+[node name="CongratsLabel" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 200.0
+offset_right = 876.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 72
+text = "Congratulations!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 320.0
+offset_right = 776.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 48
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="."]
+offset_left = 326.0
+offset_top = 450.0
+offset_right = 826.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 24
+text = "Press R to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1

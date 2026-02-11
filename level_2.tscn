@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cpds5jyofdrxh" path="res://color_adder.tscn" id="2_1y8me"]
 [ext_resource type="PackedScene" uid="uid://demu3u67o3vdo" path="res://color_subtractor.tscn" id="3_n7ypv"]
 [ext_resource type="PackedScene" uid="uid://fuitx7v5yq8q" path="res://basic_platform.tscn" id="4_1y8me"]
+[ext_resource type="PackedScene" uid="uid://c15ubye3138yc" path="res://level_trigger.tscn" id="5_win"]
+[ext_resource type="AudioStream" path="res://background.mp3" id="6_bgmusic"]
+[ext_resource type="Script" path="res://background_music.gd" id="7_bgscript"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(407, 100)
@@ -784,3 +787,23 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground13" unique_id=1499736618]
 position = Vector2(-204.5, 2)
 shape = SubResource("RectangleShape2D_xdadj")
+
+[node name="LevelTriggerWin" parent="." instance=ExtResource("5_win")]
+position = Vector2(9950, 435)
+next_level_path = "res://win_screen.tscn"
+
+[node name="WinLabel" type="Label" parent="LevelTriggerWin"]
+offset_left = -50.0
+offset_top = -120.0
+offset_right = 50.0
+offset_bottom = -80.0
+theme_override_font_sizes/font_size = 20
+text = "WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bgmusic")
+autoplay = true
+bus = &"Master"
+script = ExtResource("7_bgscript")

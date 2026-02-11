@@ -3,6 +3,7 @@ extends Area2D
 @export var trigger_color: Player.PlayerColor = Player.PlayerColor.BLUE
 
 @onready var polygon: Polygon2D = $Polygon2D
+@onready var add_color_sound = $AddColorSound
 
 func _ready() -> void:
 	_apply_visual_color()
@@ -14,6 +15,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.add_color(trigger_color)
+		add_color_sound.play()
 
 func _apply_visual_color() -> void:
 	match trigger_color:

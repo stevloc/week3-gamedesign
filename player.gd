@@ -4,17 +4,29 @@ class_name Player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const COYOTE_TIME = 0.1
+const FALL_DEATH_Y = 800.0  # Y position below which player dies
 
 enum PlayerColor { RED, BLUE, YELLOW, GREEN, PURPLE, ORANGE, WHITE, PINK, BLACK }
 var current_color: PlayerColor = PlayerColor.RED
 var coyote_timer: float = 0.0
 
 @onready var color_rect = $ColorRect
+@onready var jump_sound = $JumpSound
 
 func _ready():
 	update_color()
 
 func _physics_process(delta: float) -> void:
+	# Check for restart key
+	if Input.is_key_pressed(KEY_R):
+		restart_game()
+		return
+	
+	# Check if player fell too far
+	if position.y > FALL_DEATH_Y:
+		game_over()
+		return
+	
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -27,6 +39,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and can_jump:
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0.0
+		jump_sound.play()
 		#toggle_color()
 	
 	# Get input direction and handle movement
@@ -37,6 +50,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+
+func game_over() -> void:
+	get_tree().change_scene_to_file("res://lose_screen.tscn")
+
+func restart_game() -> void:
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func update_color() -> void:
 	collision_mask = -1

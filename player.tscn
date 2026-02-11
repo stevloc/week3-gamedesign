@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://c5qxvjxqwxqxq"]
+[gd_scene load_steps=4 format=3 uid="uid://c5qxvjxqwxqxq"]
 
 [ext_resource type="Script" uid="uid://c18rihxgylrl5" path="res://player.gd" id="1_player"]
+[ext_resource type="AudioStream" path="res://jump.mp3" id="2_jump"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(50, 50)
@@ -17,3 +18,6 @@ color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785609692]
 shape = SubResource("RectangleShape2D_1")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jump")

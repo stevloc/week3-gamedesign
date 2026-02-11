@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cpds5jyofdrxh" path="res://color_adder.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://demu3u67o3vdo" path="res://color_subtractor.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c15ubye3138yc" path="res://level_trigger.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" path="res://background.mp3" id="5_bgmusic"]
+[ext_resource type="Script" path="res://background_music.gd" id="6_bgscript"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(6252, 100)
@@ -245,3 +247,9 @@ trigger_color = 0
 position = Vector2(4344, 477)
 scale = Vector2(2, 2)
 trigger_color = 2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bgmusic")
+autoplay = true
+bus = &"Master"
+script = ExtResource("6_bgscript")

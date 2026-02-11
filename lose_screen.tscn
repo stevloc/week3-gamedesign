@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8nax3y5qn7k2"]
+
+[ext_resource type="Script" path="res://lose_screen.gd" id="1_lose_script"]
+
+[node name="LoseScreen" type="Node2D"]
+script = ExtResource("1_lose_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.15, 0.05, 0.05, 1)
+
+[node name="GameOverLabel" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 200.0
+offset_right = 876.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 72
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseLabel" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 320.0
+offset_right = 776.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(1, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 48
+text = "You Lost!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="."]
+offset_left = 326.0
+offset_top = 450.0
+offset_right = 826.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 24
+text = "Press R to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
