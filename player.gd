@@ -102,12 +102,18 @@ func subtract_color(color: PlayerColor) -> void:
 			match color:
 				PlayerColor.RED:
 					current_color = PlayerColor.YELLOW
-				PlayerColor.BLUE:
-					current_color = PlayerColor.ORANGE
+				PlayerColor.YELLOW:
+					current_color = PlayerColor.RED
 		PlayerColor.GREEN:
 			match color:
 				PlayerColor.BLUE:
 					current_color = PlayerColor.YELLOW
 				PlayerColor.YELLOW:
 					current_color = PlayerColor.BLUE
+		PlayerColor.PINK:
+			match color:
+				PlayerColor.WHITE:
+					current_color = PlayerColor.RED
+				PlayerColor.RED:
+					current_color = PlayerColor.WHITE
 	update_color()
