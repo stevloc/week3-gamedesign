@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://blngt80rl0wue"]
+[gd_scene format=3 uid="uid://c6138ugaogq05"]
 
-[ext_resource type="PackedScene" uid="uid://c5qxvjxqwxqxq" path="res://player.tscn" id="1_main"]
-[ext_resource type="PackedScene" uid="uid://cpds5jyofdrxh" path="res://color_adder.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://demu3u67o3vdo" path="res://color_subtractor.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c15ubye3138yc" path="res://level_trigger.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c5qxvjxqwxqxq" path="res://player.tscn" id="1_xdadj"]
+[ext_resource type="PackedScene" uid="uid://cpds5jyofdrxh" path="res://color_adder.tscn" id="2_1y8me"]
+[ext_resource type="PackedScene" uid="uid://demu3u67o3vdo" path="res://color_subtractor.tscn" id="3_n7ypv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(3000, 100)
@@ -16,7 +15,7 @@ size = Vector2(200, 30)
 
 [node name="Main" type="Node2D" unique_id=1874559404]
 
-[node name="Player" parent="." unique_id=1916388868 instance=ExtResource("1_main")]
+[node name="Player" parent="." unique_id=1916388868 instance=ExtResource("1_xdadj")]
 position = Vector2(100, 500)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1223158880]
@@ -139,11 +138,11 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=504094449]
 shape = SubResource("platform_shape")
 
-[node name="ColorAdder" parent="." unique_id=1236073505 instance=ExtResource("2_0xm2m")]
+[node name="ColorAdder" parent="." unique_id=1236073505 instance=ExtResource("2_1y8me")]
 position = Vector2(1675.9999, 364)
 scale = Vector2(4, 4)
 
-[node name="ColorSubtractor" parent="." unique_id=1005140926 instance=ExtResource("3_h2yge")]
+[node name="ColorSubtractor" parent="." unique_id=1005140926 instance=ExtResource("3_n7ypv")]
 position = Vector2(2159, 429)
 scale = Vector2(4.5, 4.5)
 trigger_color = 0
@@ -163,7 +162,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlueWall3" unique_id=637330298]
 shape = SubResource("wall_shape")
-
-[node name="LevelTrigger" parent="." unique_id=2025694353 instance=ExtResource("4_1bvp3")]
-position = Vector2(3054, 470)
-next_level_path = "uid://c6138ugaogq05"
