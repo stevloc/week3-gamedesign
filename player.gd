@@ -88,6 +88,10 @@ func add_color(color: PlayerColor) -> void:
 					current_color = PlayerColor.ORANGE
 				PlayerColor.BLUE:
 					current_color = PlayerColor.GREEN
+		PlayerColor.WHITE:
+			match color:
+				PlayerColor.RED:
+					current_color = PlayerColor.PINK
 	update_color()
 
 func subtract_color(color: PlayerColor) -> void:
