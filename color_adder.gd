@@ -33,3 +33,5 @@ func _apply_visual_color() -> void:
 			polygon.color = Color(1, 1, 1, 1)
 		Player.PlayerColor.PINK:
 			polygon.color = Color(1, 0.4, 0.7, 1)
+		Player.PlayerColor.BLACK:
+			polygon.color = Color(0, 0, 0)

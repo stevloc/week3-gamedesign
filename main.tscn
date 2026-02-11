@@ -36,25 +36,6 @@ z_index = 1
 position = Vector2(1626, 0)
 shape = SubResource("RectangleShape2D_ground")
 
-[node name="RedWall1" type="StaticBody2D" parent="." unique_id=563851119]
-z_index = -1
-position = Vector2(3589, 1338)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RedWall1" unique_id=1518936976]
-z_index = -1
-shape = SubResource("wall_shape")
-
-[node name="ColorRect" type="ColorRect" parent="RedWall1" unique_id=793298812]
-z_index = -1
-offset_left = -25.0
-offset_top = -150.0
-offset_right = 25.0
-offset_bottom = 150.0
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="PurpleWall1" type="StaticBody2D" parent="." unique_id=1546555252]
 position = Vector2(1853, 444)
 collision_layer = 32
@@ -141,7 +122,7 @@ metadata/_edit_use_anchors_ = true
 shape = SubResource("wall_shape")
 
 [node name="LevelTrigger" parent="." unique_id=2025694353 instance=ExtResource("4_1bvp3")]
-position = Vector2(4772, 447)
+position = Vector2(4736, 435)
 next_level_path = "uid://c6138ugaogq05"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="LevelTrigger" unique_id=165252712]
@@ -155,6 +136,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [null]
+metadata/_edit_use_anchors_ = true
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1891065074]
 position = Vector2(59, 252)

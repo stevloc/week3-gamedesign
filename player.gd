@@ -5,7 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const COYOTE_TIME = 0.1
 
-enum PlayerColor { RED, BLUE, YELLOW, GREEN, PURPLE, ORANGE, WHITE, PINK }
+enum PlayerColor { RED, BLUE, YELLOW, GREEN, PURPLE, ORANGE, WHITE, PINK, BLACK }
 var current_color: PlayerColor = PlayerColor.RED
 var coyote_timer: float = 0.0
 
@@ -39,75 +39,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func update_color() -> void:
-	# Start with ONLY platform layer (layer 1)
-	collision_mask = 0
-	set_collision_mask_value(1, true)  # Enable platforms
-	
-	# Enable ALL color wall layers EXCEPT the matching color
-	set_collision_mask_value(2, true)   # Red walls
-	set_collision_mask_value(3, true)   # Blue walls
-	set_collision_mask_value(4, true)   # Yellow walls
-	set_collision_mask_value(5, true)   # Green walls
-	set_collision_mask_value(6, true)   # Purple walls
-	set_collision_mask_value(7, true)   # Orange walls
-	set_collision_mask_value(8, true)   # White walls
-	set_collision_mask_value(9, true)   # Pink walls
-	
-	match current_color:
-		PlayerColor.RED:
-			color_rect.color = Color(1, 0, 0, 1)
-			set_collision_mask_value(2, false)  # Disable red wall collision
-		PlayerColor.BLUE:
-			color_rect.color = Color(0, 0, 1, 1)
-			set_collision_mask_value(3, false)  # Disable blue wall collision
-		PlayerColor.YELLOW:
-			color_rect.color = Color(1, 1, 0, 1)
-			set_collision_mask_value(4, false)  # Disable yellow wall collision
-		PlayerColor.GREEN:
-			color_rect.color = Color(0, 1, 0, 1)
-			set_collision_mask_value(5, false)  # Disable green wall collision
-		PlayerColor.PURPLE:
-			color_rect.color = Color(0.5, 0, 0.5, 1)
-			set_collision_mask_value(6, false)  # Disable purple wall collision
-		PlayerColor.ORANGE:
-			color_rect.color = Color(1, 0.5, 0, 1)
-			set_collision_mask_value(7, false)  # Disable orange wall collision
-		PlayerColor.WHITE:
-			color_rect.color = Color(1, 1, 1, 1)
-			set_collision_mask_value(8, false)  # Disable white wall collision
-		PlayerColor.PINK:
-			color_rect.color = Color(1, 0.4, 0.7, 1)
-			set_collision_mask_value(9, false)  # Disable pink wall collision
-	
-	print("Player color: ", current_color)
-	print("Collision mask: ", collision_mask)
-	collision_mask = 1  # Only layer 1 (platforms) is on by default
-	
-	match current_color:
-		PlayerColor.RED:
-			color_rect.color = Color(1, 0, 0, 1)
-			set_collision_mask_value(2, false)  # Can pass through red walls
-		PlayerColor.BLUE:
-			color_rect.color = Color(0, 0, 1, 1)
-			set_collision_mask_value(3, false)  # Can pass through blue walls
-		PlayerColor.YELLOW:
-			color_rect.color = Color(1, 1, 0, 1)
-			set_collision_mask_value(4, false)  # Can pass through yellow walls
-		PlayerColor.GREEN:
-			color_rect.color = Color(0, 1, 0, 1)
-			set_collision_mask_value(5, false)  # Can pass through green walls
-		PlayerColor.PURPLE:
-			color_rect.color = Color(0.5, 0, 0.5, 1)
-			set_collision_mask_value(6, false)  # Can pass through purple walls
-		PlayerColor.ORANGE:
-			color_rect.color = Color(1, 0.5, 0, 1)
-			set_collision_mask_value(7, false)  # ← ADD THIS! Can pass through orange walls
-		PlayerColor.WHITE:
-			color_rect.color = Color(1, 1, 1, 1)
-			set_collision_mask_value(8, false)  # Can pass through white walls
-		PlayerColor.PINK:
-			color_rect.color = Color(1, 0.4, 0.7, 1)
-			set_collision_mask_value(9, false)  # Can pass through pink walls
 	collision_mask = -1
 	match current_color:
 		PlayerColor.BLUE:
